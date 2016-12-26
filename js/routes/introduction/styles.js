@@ -53,7 +53,7 @@ export default StyleSheet.create({
     },
     btnContinue: {
       position: 'absolute',
-      right: 5,
-      top: 5
+      right: 8,
+      top: 20
     }
 });

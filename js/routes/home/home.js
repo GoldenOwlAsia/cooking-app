@@ -22,7 +22,10 @@ class Home extends Component {
     this.props.selectItem(index);
     this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
   }
-
+  /**
+  <Col size={2}><Text style={styles.title}>{col.title}</Text></Col>
+  <Col size={1}><Text style={styles.views}>{col.views} views</Text></Col>
+  */
   render() {
     return (
       <Container theme={myTheme} style={styles.container}>
@@ -38,6 +41,7 @@ class Home extends Component {
         <Content>
           <Grid style={styles.mt}>
             {this.props.list.map((row, i) => {
+              debugger;
               return (
                 <Row key={i}>
                   {row.map((col, j) => {
@@ -47,8 +51,8 @@ class Home extends Component {
                           onPress={() => this.pushRoute('foodDetail', col.id)}>
                           <Image style={styles.colImage} source={{uri: col.imageUrl}}></Image>
                           <Row style={styles.caption}>
-                            <Col size={2}><Text style={styles.title}>{col.title}</Text></Col>
-                            <Col size={1}><Text style={styles.views}>{col.views} views</Text></Col>
+                            <Text style={styles.title}>{col.title}</Text>
+                            <Text style={styles.views}>{col.views} views</Text>
                           </Row>
                         </TouchableOpacity>
                       </Col>

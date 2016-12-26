@@ -34,17 +34,22 @@ module.exports = StyleSheet.create({
     height: 24
   },
   title: {
-    margin: 0,
+    textAlign: 'left',
+    marginLeft: 5,
+    marginBottom: 0,
     fontWeight: 'bold',
-    paddingLeft: 10,
     fontSize: 10,
-    lineHeight: 20
+    lineHeight: 20,
+    width : w/2 - 60 ,
+
   },
   views: {
     textAlign: 'right',
-    paddingRight: 5,
     fontSize: 8,
+    color: '#ccc',
     lineHeight: 20,
-    color: '#ccc'
+    width : 30,
+    marginLeft : 0,
+    marginBottom: 0
   }
 });
