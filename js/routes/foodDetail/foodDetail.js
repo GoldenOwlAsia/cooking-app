@@ -13,7 +13,7 @@ class FoodDetail extends Component {
           id: 1,
           title: 'Sườn xào chua ngọt',
           views: 0,
-          imageUrl: 'http://comnha24h.com/wp-content/uploads/2014/07/suon-xao-chua-ngot-2.jpg',
+          imageUrl: 'https://ameovat.com/wp-content/uploads/2016/05/cach-lam-com-chien-duong-chau-600x481.jpg',
           recipes: '<ul><li>2 dẻ sườn non</li><li>Cà chua: 2 quả nhỏ hoặc 1 quả lớn</li><li>1 củ hành khô, hành lá</li><li>Gia vị bao gồm : Mắm, muối, đường, tiêu</li></ul>',
           notes: '<ul style="text-align: justify;"><li>Sườn chín mềm, màu vàng đều đẹp và bóng, không bị tróc rời thịt và xương sườn.</li><li>Vị chua cay mặn ngọt &nbsp;hoà quyện vừa phải, nước cạn sền sệt quện đều vào miếng sườn.</li><li>Món ăn dậy mùi chua thơm nhè nhẹ của cà chua.</li><li>Nước sốt bóng đẹp bao ngoài miếng sườn, cắn miếng sườn có vị đậm đà ngấm vào bên trong chứ không chỉ có vị nước sốt bên ngoài.</li></ul>',
           steps: [
@@ -77,34 +77,43 @@ class FoodDetail extends Component {
   render() {
     return (
       <Container theme={myTheme}>
+
+        {/* headerView */}
         <Header>
           <Button transparent onPress={() => this.popRoute()}>
             <Icon name="ios-arrow-back" />
           </Button>
           <Title>{this.state.food.title ? this.state.food.title : 'Food Detail'}</Title>
         </Header>
+        {/* viewContainer All*/}
+        <View>
+          {/* viewContainer Image */}
           <View>
-            <Image style={styles.image} source={{uri: this.state.food.imageUrl}}></Image>
+            <Image style={styles.image}  source={{uri: this.state.food.imageUrl}}>
+            </Image>
           </View>
-          <View>
+          {/* viewContainer ScrollableTabView */}
+          <View style={styles.viewScrollableTabView}>
             <ScrollableTabView tabBarBackgroundColor={'#F4E8D1'}
-              tabBarActiveTextColor={'#825526'} tabBarInactiveTextColor={'#825526'}
-              tabBarUnderlineStyle={{backgroundColor:'#825526' , borderColor : '#825526' , borderBottomWidth : 0.1 , borderBottomColor : '#825526'}}>
-            <ScrollView tabLabel='Nguyên liệu' style={styles.tabView}>
-              <WebView style={styles.card}
-                source={{html: '<body bgcolor="F4E8D1">' + this.state.food.recipes + '</body>'}}>
-              </WebView>
-            </ScrollView>
+                tabBarActiveTextColor={'#825526'} tabBarInactiveTextColor={'#825526'}
+                tabBarUnderlineStyle={{backgroundColor:'#825526' , borderColor : '#825526' , borderBottomWidth : 0.1 , borderBottomColor : '#825526'}}>
+              <ScrollView tabLabel='Nguyên liệu' >
+                <WebView style={styles.webView}
+                  source={{html: '<body bgcolor="F4E8D1">' + this.state.food.recipes + '</body>'}}>
+                </WebView>
+              </ScrollView>
 
-            <ScrollView tabLabel='Ghi chú' style={styles.tabView}>
-              <WebView style={styles.card}
-                source={{html: '<body bgcolor="F4E8D1">' + this.state.food.notes + '</body>'}}>
-              </WebView>
-            </ScrollView>
-          </ScrollableTabView>
-
+              <ScrollView tabLabel='Ghi chú' >
+                <WebView style={styles.webView}
+                  source={{html: '<body bgcolor="F4E8D1">' + this.state.food.notes + '</body>'}}>
+                </WebView>
+              </ScrollView>
+            </ScrollableTabView>
           </View>
-          <Footer>
+          {/* viewContainer viewFooter */}
+          <View style={styles.viewFooter}>
+            {/* <Text style={styles.footerStep}>{this.state.food.steps.length} Bước</Text>
+            <Button style={styles.btnStart} primary>BẮT ĐẦU</Button> */}
             <Grid style={{backgroundColor:'#fff'}}>
               <Col>
                 <Text style={styles.footerStep}>{this.state.food.steps.length} Bước</Text>
@@ -113,7 +122,9 @@ class FoodDetail extends Component {
                 <Button style={styles.btnStart} primary>BẮT ĐẦU</Button>
               </Col>
             </Grid>
-          </Footer>
+          </View>
+        </View>
+
         </Container>
     )
   }

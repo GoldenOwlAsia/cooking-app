@@ -22,10 +22,6 @@ class Home extends Component {
     this.props.selectItem(index);
     this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
   }
-  /**
-  <Col size={2}><Text style={styles.title}>{col.title}</Text></Col>
-  <Col size={1}><Text style={styles.views}>{col.views} views</Text></Col>
-  */
   render() {
     return (
       <Container theme={myTheme} style={styles.container}>

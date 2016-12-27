@@ -2,27 +2,36 @@ import {StyleSheet, Dimensions, PixelRatio} from 'react-native';
 import {getCorrectFontSizeForScreen} from '../../utils/multiResolution';
 const {height: h, width: w} = Dimensions.get('window');
 export default StyleSheet.create({
-  tabView: {
-    flex: 1,
-    height: h / 2 - 15
-  },
-  card: {
-    flex: 1,
-    padding: 15,
-    height: h / 2 - 15
-  },
   image: {
+    marginTop: 0,
     height: h/4,
     resizeMode: 'stretch'
   },
+  viewScrollableTabView: {
+    flex: 1,
+    marginTop: 0,
+    width : w,
+    height: h - h/4 - 64 - 49
+  },
+  webView: {
+    flex: 1,
+    height: h - h/4 - 64 - 49 - 49
+  },
+  viewFooter: {
+    height : 49,
+    width : w,
+  },
   footerStep: {
     color: '#FA9F0B',
-    lineHeight: 42,
-    fontSize: getCorrectFontSizeForScreen(PixelRatio, w, h, 24)
+    fontSize: getCorrectFontSizeForScreen(PixelRatio, w, h, 20),
+    marginTop: 8,
+    height: 33,
+    marginLeft : 8
   },
   btnStart: {
     alignSelf: 'flex-end',
-    marginRight: 5,
-    marginTop: 5,
+    marginTop: 8,
+    right: 8,
+    height : 33
   }
 })
