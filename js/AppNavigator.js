@@ -14,6 +14,7 @@ import SideBar from './components/sideBar';
 import Introduction from './routes/introduction';
 import Home from './routes/home/';
 import FoodDetail from './routes/foodDetail';
+import StepsScreen from './routes/stepsScreen';
 
 const {
   popRoute,
@@ -87,6 +88,8 @@ class AppNavigator extends Component {
         return <Home />;
       case 'foodDetail':
         return <FoodDetail />;
+      case 'stepsScreen':
+        return <StepsScreen/>; 
       case 'blankPage':
         return <BlankPage />;
       default :

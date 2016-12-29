@@ -15,7 +15,6 @@ function setup():React.Component {
         store: configureStore(() => this.setState({ isLoading: false })),
       };
     }
-
     render() {
       return (
         <Provider store={this.state.store}>
@@ -24,7 +23,6 @@ function setup():React.Component {
       );
     }
   }
-
   return Root;
 }
 

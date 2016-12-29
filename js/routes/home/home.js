@@ -25,12 +25,14 @@ class Home extends Component {
   render() {
     return (
       <Container theme={myTheme} style={styles.container}>
-        <Header>
+        <Header style = {{backgroundColor : '#8D6437'}}>
           <Button transparent onPress={this.props.openDrawer}>
             <Icon name="ios-menu" />
           </Button>
 
-          <Title>{(this.props.name) ? this.props.name : 'COOKING BOOK'}</Title>
+          <Title>
+                  {(this.props.name) ? this.props.name : 'COOKING BOOK'}
+          </Title>
 
         </Header>
 

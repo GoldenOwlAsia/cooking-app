@@ -1,13 +1,12 @@
-import FoodDetail from './foodDetail';
+import StepsScreen from './stepsScreen';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 
-const { popRoute , pushRoute } = actions;
+const { popRoute } = actions;
 
 function bindAction(dispatch) {
   return {
     popRoute: key => dispatch(popRoute(key)),
-    pushRoute: (route,key) => dispatch(pushRoute(route,key)),
   };
 }
 
@@ -17,4 +16,4 @@ const mapStateToProps = state => ({
   list: state.list.list,
 });
 
-export default connect(mapStateToProps, bindAction)(FoodDetail);
+export default connect(mapStateToProps, bindAction)(StepsScreen);

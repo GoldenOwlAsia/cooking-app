@@ -114,13 +114,14 @@ export default {
 
 
   // Header
-  iosToolbarBtnColor: '#8D6437',
+  // iosToolbarBtnColor: '#8D6437',
+  iosToolbarBtnColor: '#ffffff',
   toolbarDefaultBg: (Platform.OS === 'ios') ? '#F8F8F8' : '#8D6437',
   toolbarHeight: (Platform.OS === 'ios') ? 64 : 56,
   toolbarIconSize: (Platform.OS === 'ios') ? 20 : 22,
   toolbarInputColor: '#CECDD2',
   toolbarInverseBg: '#222',
-  toolbarTextColor: (Platform.OS === 'ios') ? '#000' : '#fff',
+  toolbarTextColor: (Platform.OS === 'ios') ? '#fff' : '#fff',
   get statusBarColor() {
     return color(this.toolbarDefaultBg).darken(0.2).hexString();
   },
