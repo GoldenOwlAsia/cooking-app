@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Image, Text, ScrollView, View, WebView} from 'react-native';
-import {Container, Header, Footer, Content, Button, Icon, Title, Grid, Row, Col , Badge} from 'native-base';
+import { Header,  Button,Title, Grid, Row, Col } from 'native-base';
 import ScrollableTabView, {DefaultTabBar} from 'react-native-scrollable-tab-view';
 import myTheme from '../../themes/base-theme';
 import styles from './styles';
@@ -69,20 +69,40 @@ class StepsScreen extends Component {
         }
       }
   }
-
   popRoute() {
     this.props.popRoute(this.props.navigation.key);
   }
 
   render() {
     return (
-      <View style={{paddingTop: 20}}>
-        <View></View>
-        <View style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row',
-        justifyContent: 'center'}}>
-        <View style={{backgroundColor: 'yellow', padding: 20, borderRadius: 1000}}>
-          <Text>2</Text>
-        </View>
+      <View >
+        {/* headerView */}
+        <Header style = {styles.headerView}>
+          {/* title */}
+          <Title style = {styles.title}>
+            {this.state.food.title ? this.state.food.title : 'Food Detail'}
+          </Title>
+        </Header>
+        {/* containerView */}
+        <View style = {styles.containerView}>
+          {/* numberView */}
+          <View  style ={styles.numberView}>
+            <Text style = {styles.numberText}>
+              1
+            </Text>
+          </View>
+          {/* circleViewLeft */}
+          <View style = {styles.circleViewLeft}>
+            <Button style = {styles.btnBack} onPress={() => this.popRoute()}>
+              Back
+            </Button>
+          </View>
+          {/* circleViewRight */}
+          <View style = {styles.circleViewRight}>
+            <Button style = {styles.btnNext}>
+              Next
+            </Button>
+          </View>
         </View>
       </View>
 
