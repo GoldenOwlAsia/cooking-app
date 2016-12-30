@@ -5,7 +5,7 @@ import ScrollableTabView, {DefaultTabBar} from 'react-native-scrollable-tab-view
 import myTheme from '../../themes/base-theme';
 import styles from './styles';
 
-class StepsScreen extends Component {
+class StepsView extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -69,9 +69,16 @@ class StepsScreen extends Component {
         }
       }
   }
+  pushRoute(route) {
+    this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
+  }
   popRoute() {
     this.props.popRoute(this.props.navigation.key);
   }
+  onButtonPress(){
+    this.props.popRoute(this.props.navigation.key);
+  };
+
 
   render() {
     return (
@@ -98,16 +105,15 @@ class StepsScreen extends Component {
             </Button>
           </View>
           {/* circleViewRight */}
-          <View style = {styles.circleViewRight}>
-            <Button style = {styles.btnNext}>
+          <View style = {styles.circleViewRight} >
+            <Button style = {styles.btnNext} onPress={() => this.pushRoute('completeView')}>
               Next
             </Button>
           </View>
         </View>
       </View>
-
     )
   }
 }
 
-export default StepsScreen;
+export default StepsView;

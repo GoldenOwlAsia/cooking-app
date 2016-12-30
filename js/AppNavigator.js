@@ -14,7 +14,8 @@ import SideBar from './components/sideBar';
 import Introduction from './routes/introduction';
 import Home from './routes/home/';
 import FoodDetail from './routes/foodDetail';
-import StepsScreen from './routes/stepsScreen';
+import StepsView from './routes/stepsView';
+import CompleteView from './routes/completeView';
 
 const {
   popRoute,
@@ -81,15 +82,16 @@ class AppNavigator extends Component {
         return <SplashPage />;
       case 'login':
         return <Login />;
-      case 'introduction': {
+      case 'introduction':
         return <Introduction />;
-      }
       case 'home':
         return <Home />;
       case 'foodDetail':
         return <FoodDetail />;
-      case 'stepsScreen':
-        return <StepsScreen/>; 
+      case 'stepsView':
+        return <StepsView/>;
+        case 'completeView':
+          return <CompleteView/>;
       case 'blankPage':
         return <BlankPage />;
       default :
@@ -139,17 +141,14 @@ class AppNavigator extends Component {
     );
   }
 }
-
 function bindAction(dispatch) {
   return {
     closeDrawer: () => dispatch(closeDrawer()),
     popRoute: key => dispatch(popRoute(key)),
   };
 }
-
 const mapStateToProps = state => ({
   drawerState: state.drawer.drawerState,
   navigation: state.cardNavigation,
 });
-
 export default connect(mapStateToProps, bindAction)(AppNavigator);

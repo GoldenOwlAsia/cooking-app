@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {Image, Text, ScrollView, View, WebView} from 'react-native';
-import {Container, Header, Footer, Content, Button, Icon, Title, Grid, Row, Col} from 'native-base';
+import { Header,  Button,Title, Grid, Row, Col } from 'native-base';
 import ScrollableTabView, {DefaultTabBar} from 'react-native-scrollable-tab-view';
 import myTheme from '../../themes/base-theme';
 import styles from './styles';
 
-class FoodDetail extends Component {
+class CompleteView extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -69,7 +69,6 @@ class FoodDetail extends Component {
         }
       }
   }
-
   pushRoute(route) {
     this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
   }
@@ -77,57 +76,36 @@ class FoodDetail extends Component {
     this.props.popRoute(this.props.navigation.key);
   }
 
+
   render() {
     return (
-      <Container theme={myTheme}>
+      <View >
         {/* headerView */}
-        <Header style = {{backgroundColor : '#8D6437'}}>
-          <Button transparent onPress={() => this.popRoute()}>
-            <Icon name="ios-arrow-back" />
-          </Button>
-          <Title>{this.state.food.title ? this.state.food.title : 'Food Detail'}</Title>
+        <Header style = {styles.headerView}>
+          {/* title */}
+          <Title style = {styles.title}>
+            {this.state.food.title ? this.state.food.title : 'Food Detail'}
+          </Title>
         </Header>
-        {/* viewContainer All*/}
-        <View>
-          {/* viewContainer Image */}
-          <View>
-            <Image style={styles.image}  source={{uri: this.state.food.imageUrl}}>
-            </Image>
+        {/* containerView */}
+        <View style = {styles.containerView}>
+          {/* numberView */}
+          <View  style ={styles.numberView}>
+            <Text style = {styles.numberText}>
+              1
+            </Text>
           </View>
-          {/* viewContainer ScrollableTabView */}
-          <View style={styles.viewScrollableTabView}>
-            <ScrollableTabView tabBarBackgroundColor={'#F4E8D1'}
-                tabBarActiveTextColor={'#825526'} tabBarInactiveTextColor={'#825526'}
-                tabBarUnderlineStyle={{backgroundColor:'#825526' , borderColor : '#825526' , borderBottomWidth : 0.1 , borderBottomColor : '#825526'}}>
-              <ScrollView tabLabel='Nguyên liệu' >
-                <WebView style={styles.webView}
-                  source={{html: '<body bgcolor="F4E8D1">' + this.state.food.recipes + '</body>'}}>
-                </WebView>
-              </ScrollView>
+          {/* circleViewLeft */}
+          <View style = {styles.circleViewLeft}>
+            <Button style = {styles.btnBack} onPress={() => this.popRoute()}>
+              Home
+            </Button>
+          </View>
 
-              <ScrollView tabLabel='Ghi chú' >
-                <WebView style={styles.webView}
-                  source={{html: '<body bgcolor="F4E8D1">' + this.state.food.notes + '</body>'}}>
-                </WebView>
-              </ScrollView>
-            </ScrollableTabView>
-          </View>
-          {/* viewContainer viewFooter */}
-          <View style={styles.viewFooter}>
-            <Grid style={{backgroundColor:'#fff'}}>
-              <Col>
-                <Text style={styles.footerStep}>{this.state.food.steps.length} Bước</Text>
-              </Col>
-              <Col>
-                <Button onPress={() => this.pushRoute('stepsView')} style={styles.btnStart} primary >BẮT ĐẦU</Button>
-              </Col>
-            </Grid>
-          </View>
         </View>
-
-        </Container>
+      </View>
     )
   }
 }
 
-export default FoodDetail;
+export default CompleteView;
