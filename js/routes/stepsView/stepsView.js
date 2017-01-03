@@ -70,7 +70,7 @@ class StepsView extends Component {
       }
   }
   pushRoute(route) {
-    this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
+    this.props.pushRoute({ key: route }, this.props.navigation.key);
   }
   popRoute() {
     this.props.popRoute(this.props.navigation.key);

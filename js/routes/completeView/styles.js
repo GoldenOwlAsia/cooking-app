@@ -16,46 +16,22 @@ export default StyleSheet.create({
     height: h - 64
 
   },
-  numberView: {
-    backgroundColor : '#ffffff',
-    top : 20,
-    left: (w - 50 )/2,
-    width: 50,
-    height: 50,
-    borderRadius : 25
-  },
-  numberText: {
+  textTitle: {
     fontSize : 30,
     textAlign : 'center',
     color : '#ffa500',
     backgroundColor : 'transparent',
-    top : 10,
-    left: 10,
-    width: 30,
-    height: 30
+    top : 20,
+    left: 30,
+    width: w - 60,
+    height: w/2
   },
-  circleViewLeft:{
-    backgroundColor : '#8D6437',
-    top : h - 64 - 50 - 100,
-    left: - 50,
+  btnHome: {
+    top : 50,
+    left : w/2 - 50,
     width: 100,
-    height: 100,
-    borderRadius : 50
-  },
-  circleViewRight:{
-    backgroundColor : '#8D6437',
-    top : h - 64 - 50 - 100 - 100,
-    left: w - 50,
-    width: 100,
-    height: 100,
-    borderRadius : 50
-  },
-  btnBack: {
-    top : 0,
-    left : 50,
-    width: 50,
-    height: 100,
-    backgroundColor : 'transparent'
+    height: 50,
+    backgroundColor : 'white'
   },
   btnNext: {
     top : 0,
