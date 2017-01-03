@@ -6,9 +6,9 @@ const initialState = {
   index: 0,
   routes: [
     {
-      key: 'stepsView',
+      key: 'home',
       index: 0,
-    },
+    }
   ],
 };
 

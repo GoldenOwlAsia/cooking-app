@@ -31,14 +31,14 @@ export default StyleSheet.create({
     borderRadius : 25
   },
   numberText: {
-    fontSize : 30,
+    fontSize : 20,
     textAlign : 'center',
     color : '#ffa500',
     backgroundColor : 'transparent',
-    top : 10,
-    left: 10,
-    width: 30,
-    height: 30
+    top : 15,
+    left: 0,
+    width: 50,
+    height: 20
   },
   contentText: {
     fontSize : 15,

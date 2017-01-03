@@ -26,14 +26,13 @@ const {
 } = NavigationExperimental;
 
 class AppNavigator extends Component {
-
   static propTypes = {
     drawerState: React.PropTypes.string,
     popRoute: React.PropTypes.func,
     closeDrawer: React.PropTypes.func,
     navigation: React.PropTypes.shape({
-      key: React.PropTypes.string,
-      routes: React.PropTypes.array,
+    key: React.PropTypes.string,
+    routes: React.PropTypes.array,
     }),
   }
 

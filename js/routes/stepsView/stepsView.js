@@ -8,8 +8,9 @@ import styles from './styles';
 class StepsView extends Component {
   constructor (props) {
     super(props);
-    this.steps = 0
     this.state = {
+      steps: 1,
+      contentText: 'Hành tây, ớt chuông cắt miếng vuông cạnh 3cm.',
       food: {
           id: 1,
           title: 'Sườn xào chua ngọt',
@@ -19,69 +20,65 @@ class StepsView extends Component {
           notes: '<ul style="text-align: justify;"><li>Sườn chín mềm, màu vàng đều đẹp và bóng, không bị tróc rời thịt và xương sườn.</li><li>Vị chua cay mặn ngọt &nbsp;hoà quyện vừa phải, nước cạn sền sệt quện đều vào miếng sườn.</li><li>Món ăn dậy mùi chua thơm nhè nhẹ của cà chua.</li><li>Nước sốt bóng đẹp bao ngoài miếng sườn, cắn miếng sườn có vị đậm đà ngấm vào bên trong chứ không chỉ có vị nước sốt bên ngoài.</li></ul>',
           steps: [
             {
-              header: 'Ướp thịt heo',
-              content: '1'
+              header: 'Hành tây, ớt chuông cắt miếng vuông cạnh 3cm.',
+              content: ' Bước 1'
             },
             {
-              header: 'Chần sườn heo',
-              content: '2'
+              header: 'Sườn non chẻ dọc chặt miếng dài 4cm, ướp với 1 muỗng đường, 0.5 muỗng muối, 0.5 muỗng bột ngọt, nước tương, 1 ít tiêu, hành tím băm trong khoảng 10 phút.',
+              content: 'Bước 2'
             },
             {
-              header: '3',
-              content: '3'
+              header: 'Bắc chảo lên bếp, cho 1 muỗng dầu ăn vào chảo.',
+              content: 'Bước 3'
             },
             {
-              header: '4',
-              content: '4'
+              header: 'Tiếp tục cho dầu ăn vào 1 chiếc chảo khác, đổ dầu ăn ngập miếng sườn để nóng già, rồi trút sườn vào chiên vàng, vớt ra để ráo dầu.',
+              content: 'Bước 4'
             },
             {
-              header: '5',
-              content: '5'
+              header: 'Pha nước sốt cho món sườn xào chua ngọt: 1/2 muỗng giấm gạo, 1 muỗng đường, 1/2 muỗng nước tương, 1muỗng hạt nêm, 1/2 chén nước, 1 muỗng tương cà. Rồi trộn đều cho tạo thành hỗn hợp sánh đặc. Nếu ăn cay thì bạn thêm chút lát ớt vào nha!',
+              content: 'Bước 5'
             },
             {
-              header: '6',
-              content: '6'
+              header: 'Phi thơm tỏi, cho sườn đã chiên vào, cho nước xốt vào, xào lửa nhỏ cho sườn chín mềm trong khoảng 5 phút, thêm chút nước bột năng cho xốt sền sệt, thêm hành tây, ớt chuông vào, nêm cho sườn có vị chua ngọt dịu.',
+              content: 'Bước 6'
             },
             {
-              header: '7',
-              content: '7'
-            },
-            {
-              header: '8',
-              content: '8'
-            },
-            {
-              header: '9',
-              content: '9'
-            },
-            {
-              header: '10',
-              content: '10'
-            },
-            {
-              header: '11',
-              content: '11'
-            },
-            {
-              header: '12',
-              content: '12'
+              header: 'Múc sườn ra dĩa, rắc tiêu, bày rau mùi đã rửa sạch lên trên, dùng nóng với cơm.',
+              content: 'Bước 7'
             }
           ]
         }
       }
   }
   pushRoute(route) {
-    this.props.pushRoute({ key: route }, this.props.navigation.key);
+    this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
   }
   popRoute() {
     this.props.popRoute(this.props.navigation.key);
   }
-  onButtonPress(){
-    this.steps = this.steps + 1
-    console.log(this.steps);
-  };
-
-
+  onPressButtonBack(){
+      if (this.state.steps == 1){
+        this.popRoute()
+      }else{
+        var temp = this.state.steps - 1
+        this.setState({
+          steps : temp ,
+          contentText : this.state.food.steps[temp - 1 ].header
+        })
+    }
+  }
+  onPressButtonNext(){
+      if (this.state.steps == 7){
+        this.pushRoute('completeView')
+      }else{
+        var temp = this.state.steps + 1
+        this.setState({
+          steps : temp ,
+          contentText : this.state.food.steps[temp - 1].header
+        })
+    }
+  }
   render() {
     return (
       <View >
@@ -99,14 +96,13 @@ class StepsView extends Component {
           {/* numberView */}
           <View  style ={styles.numberView}>
             <Text style = {styles.numberText}>
-              1
+              {this.state.steps}
             </Text>
           </View>
           {/* Text */}
           <View  >
             <Text style = {styles.contentText}>
-              Suon heo chat thanh nhung mieng nho vua an, sau do so che sach voi muoi
-              Suon heo chat thanh nhung mieng nho vua an, sau do so che sach voi muoi
+              {this.state.contentText}
             </Text>
           </View>
         </View>
@@ -115,20 +111,18 @@ class StepsView extends Component {
         <View style = {styles.containerButtonView}>
           {/* circleViewLeft */}
           <View style = {styles.circleViewLeft}>
-            <Button style = {styles.btnBack} onPress={() => this.popRoute()}>
+            <Button style = {styles.btnBack} onPress={() => this.onPressButtonBack()}>
               Back
             </Button>
           </View>
           {/* circleViewRight */}
           <View style = {styles.circleViewRight} >
-            <Button style = {styles.btnNext} onPress={() => this.onButtonPress()}>
+            <Button style = {styles.btnNext} onPress={() => this.onPressButtonNext()}>
               Next
             </Button>
           </View>
         </View>
         </View>
-
-
     )
   }
 }
