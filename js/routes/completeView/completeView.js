@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
-import {
-  Text,
-  View,
-  ScrollView,
-} from 'react-native'
-import { Header,  Button ,Title, Grid, Row, Col, Icon } from 'native-base';
+import {Text,View, Image } from 'react-native';
+import ButtonCustom from './Button';
+import { Header , Button, Title, Icon } from 'native-base';
 import ScrollableTabView, {DefaultTabBar} from 'react-native-scrollable-tab-view';
 import myTheme from '../../themes/base-theme';
 import styles from './styles';
@@ -85,16 +82,28 @@ class CompleteView extends Component {
           {/* 1 */}
           {/* headerView */}
           <Header style = {styles.headerView}>
-            {/* button back */}
-            <Button transparent onPress={() => this.popRoute()}>
-              <Icon name="ios-arrow-back" />
-            </Button>
             {/* title */}
             <Title style = {styles.title}>
               {this.state.food.title ? this.state.food.title : 'Food Detail'}
             </Title>
           </Header>
+          <View style = {styles.containerView}>
+            {/* 2 */}
+            {/* containerView */}
+            <Text style = {styles.contentText}>
+              Chuc Ban May Man Lan Sau
+            </Text>
+            <Image style = {styles.imageLogo}>
+            </Image>
+            <ButtonCustom
+              containerStyle={styles.btnHome}
+              style = {{color : '#8D6437'}}
+              onPress={() => this.popRoute()}>
+              Home
+            </ButtonCustom>
+          </View>
       </View>
+
     )
   }
 }

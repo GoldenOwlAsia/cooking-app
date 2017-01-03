@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Image, Text, ScrollView, View, WebView} from 'react-native';
+import {Image, Text, ScrollView, View} from 'react-native';
 import { Header,  Button,Title, Grid, Row, Col } from 'native-base';
 import ScrollableTabView, {DefaultTabBar} from 'react-native-scrollable-tab-view';
 import myTheme from '../../themes/base-theme';
@@ -8,6 +8,7 @@ import styles from './styles';
 class StepsView extends Component {
   constructor (props) {
     super(props);
+    this.steps = 0
     this.state = {
       food: {
           id: 1,
@@ -76,7 +77,8 @@ class StepsView extends Component {
     this.props.popRoute(this.props.navigation.key);
   }
   onButtonPress(){
-    this.props.popRoute(this.props.navigation.key);
+    this.steps = this.steps + 1
+    console.log(this.steps);
   };
 
 
@@ -119,7 +121,7 @@ class StepsView extends Component {
           </View>
           {/* circleViewRight */}
           <View style = {styles.circleViewRight} >
-            <Button style = {styles.btnNext} onPress={() => this.pushRoute('completeView')}>
+            <Button style = {styles.btnNext} onPress={() => this.onButtonPress()}>
               Next
             </Button>
           </View>

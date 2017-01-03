@@ -16,28 +16,28 @@ export default StyleSheet.create({
     height: h - 64
 
   },
-  textTitle: {
+  contentText: {
     fontSize : 30,
     textAlign : 'center',
     color : '#ffa500',
     backgroundColor : 'transparent',
     top : 20,
     left: 30,
-    width: w - 60,
-    height: w/2
+    width: w - 60
   },
-  btnHome: {
-    top : 50,
+  imageLogo: {
+    top : 60,
     left : w/2 - 50,
     width: 100,
-    height: 50,
-    backgroundColor : 'white'
-  },
-  btnNext: {
-    top : 0,
-    left : 0,
-    width: 50,
     height: 100,
-    backgroundColor : 'transparent'
+    backgroundColor : 'red'
+  },
+  btnHome: {
+    top : 90,
+    left : w/2 - 50,
+    width: 100,
+    height: 40,
+    padding:10,
+    borderRadius:4, backgroundColor: 'white'
   }
 })
