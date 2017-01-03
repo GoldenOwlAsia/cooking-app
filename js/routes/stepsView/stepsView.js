@@ -83,6 +83,7 @@ class StepsView extends Component {
   render() {
     return (
       <View >
+        {/* 1 */}
         {/* headerView */}
         <Header style = {styles.headerView}>
           {/* title */}
@@ -90,6 +91,7 @@ class StepsView extends Component {
             {this.state.food.title ? this.state.food.title : 'Food Detail'}
           </Title>
         </Header>
+        {/* 2 */}
         {/* containerView */}
         <View style = {styles.containerView}>
           {/* numberView */}
@@ -98,6 +100,17 @@ class StepsView extends Component {
               1
             </Text>
           </View>
+          {/* Text */}
+          <View  >
+            <Text style = {styles.contentText}>
+              Suon heo chat thanh nhung mieng nho vua an, sau do so che sach voi muoi
+              Suon heo chat thanh nhung mieng nho vua an, sau do so che sach voi muoi
+            </Text>
+          </View>
+        </View>
+        {/* 3 */}
+        {/* containerButtonView */}
+        <View style = {styles.containerButtonView}>
           {/* circleViewLeft */}
           <View style = {styles.circleViewLeft}>
             <Button style = {styles.btnBack} onPress={() => this.popRoute()}>
@@ -111,7 +124,9 @@ class StepsView extends Component {
             </Button>
           </View>
         </View>
-      </View>
+        </View>
+
+
     )
   }
 }

@@ -13,7 +13,13 @@ export default StyleSheet.create({
   containerView: {
     backgroundColor : '#ffe4b5',
     width: w,
-    height: h - 64
+    height: h - 64 - 100
+
+  },
+  containerButtonView: {
+    backgroundColor : '#ffe4b5',
+    width: w,
+    height: 100
 
   },
   numberView: {
@@ -34,9 +40,18 @@ export default StyleSheet.create({
     width: 30,
     height: 30
   },
+  contentText: {
+    fontSize : 15,
+    textAlign : 'center',
+    color : '#ffa500',
+    backgroundColor : 'transparent',
+    top : 50,
+    left: 50,
+    width:w - 50*2
+  },
   circleViewLeft:{
     backgroundColor : '#8D6437',
-    top : h - 64 - 50 - 100,
+    top : 0 ,
     left: - 50,
     width: 100,
     height: 100,
@@ -44,7 +59,7 @@ export default StyleSheet.create({
   },
   circleViewRight:{
     backgroundColor : '#8D6437',
-    top : h - 64 - 50 - 100 - 100,
+    top : - 100 ,
     left: w - 50,
     width: 100,
     height: 100,
