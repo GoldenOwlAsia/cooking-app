@@ -43,8 +43,8 @@ module.exports = StyleSheet.create({
     width : w/2 - 60 ,
 
   },
-  views: {
-    textAlign: 'right',
+  textViews: {
+    textAlign: 'left',
     fontSize: 8,
     color: '#ccc',
     lineHeight: 20,

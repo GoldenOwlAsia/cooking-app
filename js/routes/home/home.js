@@ -14,8 +14,14 @@ class Home extends Component {
     pushRoute: React.PropTypes.func,
     reset: React.PropTypes.func,
     navigation: React.PropTypes.shape({
-      key: React.PropTypes.string,
+    key: React.PropTypes.string,
     }),
+  }
+  constructor (props) {
+    super(props);
+    this.state = {
+      name: 'COOKING BOOK'
+      }
   }
 
   pushRoute(route, index) {
@@ -29,9 +35,9 @@ class Home extends Component {
           <Button transparent onPress={this.props.openDrawer}>
             <Icon name="ios-menu" />
           </Button>
-
           <Title>
-                  {(this.props.name) ? this.props.name : 'COOKING BOOK'}
+            {this.state.name}
+                  {/* {(this.props.name) ? this.props.name : 'COOKING BOOK'} */}
           </Title>
 
         </Header>
@@ -50,7 +56,7 @@ class Home extends Component {
                           <Image style={styles.colImage} source={{uri: col.imageUrl}}></Image>
                           <Row style={styles.caption}>
                             <Text style={styles.title}>{col.title}</Text>
-                            <Text style={styles.views}>{col.views} views</Text>
+                            <Text style={styles.textViews}> {col.views} view</Text>
                           </Row>
                         </TouchableOpacity>
                       </Col>

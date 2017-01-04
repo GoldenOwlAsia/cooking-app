@@ -31,7 +31,9 @@ const initialState = {
 
 export default function (state:State = initialState, action:Action): State {
   if (action.type === SELECT_ITEM) {
+    console.log('11111', action.payload)
     return {
+
       ...state,
       selectedItemId: action.payload,
     };

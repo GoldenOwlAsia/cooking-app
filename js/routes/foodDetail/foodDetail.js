@@ -8,6 +8,7 @@ import styles from './styles';
 class FoodDetail extends Component {
   constructor (props) {
     super(props);
+    console.log ('Vinh',this.props.index)
     this.state = {
       food: {
           id: 1,

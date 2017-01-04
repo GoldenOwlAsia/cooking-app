@@ -75,7 +75,7 @@ class AppNavigator extends Component {
     }
   }
 
-  _renderScene(props) { // eslint-disable-line class-methods-use-this
+  _renderScene(props) {
     switch (props.scene.route.key) {
       case 'splashscreen':
         return <SplashPage />;
@@ -97,49 +97,90 @@ class AppNavigator extends Component {
         return <Introduction />;
     }
   }
-
   render() {
-    return (
-      <Drawer
-        ref={(ref) => { this._drawer = ref; }}
-        type="static"
-        tweenDuration={150}
-        content={<SideBar />}
-        tapToClose={true}
-        acceptPan={false}
-        onClose={() => this.closeDrawer()}
-        openDrawerOffset={0.6}
-        panCloseMask={0.6}
-        styles={{
-          drawer: {
-            shadowColor: '#000000',
-            shadowOpacity: 0.8,
-            shadowRadius: 3,
-          },
-        }}
-        tweenHandler={(ratio) => {  //eslint-disable-line
-          return {
-            drawer: { shadowRadius: ratio < 0.2 ? ratio * 5 * 5 : 5 },
-            main: {
-              opacity: (2 - ratio) / 2,
+      return (
+        <Drawer
+          ref={(ref) => { this._drawer = ref; }}
+          type="overlay"
+          tweenDuration={150}
+          content={<SideBar />}
+          tapToClose
+          acceptPan={false}
+          onClose={() => this.closeDrawer()}
+          openDrawerOffset={0.6}
+          panCloseMask={0.6}
+          styles={{
+            drawer: {
+              shadowColor: '#000000',
+              shadowOpacity: 0.8,
+              shadowRadius: 3,
             },
-          };
-        }}
-        negotiatePan
-      >
-        <StatusBar
-          backgroundColor={statusBarColor}
-          barStyle="default"
-        />
-        <NavigationCardStack
-          navigationState={this.props.navigation}
-          renderOverlay={this._renderOverlay}
-          renderScene={this._renderScene}
-        />
-      </Drawer>
-    );
+          }}
+          tweenHandler={(ratio) => {  //eslint-disable-line
+            return {
+              drawer: { shadowRadius: ratio < 0.2 ? ratio * 5 * 5 : 5 },
+              main: {
+                opacity: (2 - ratio) / 2,
+              },
+            };
+          }}
+          negotiatePan
+        >
+          <StatusBar
+            backgroundColor={statusBarColor}
+            barStyle="default"
+          />
+          <NavigationCardStack
+            navigationState={this.props.navigation}
+            renderOverlay={this._renderOverlay}
+            renderScene={this._renderScene}
+          />
+        </Drawer>
+      );
+    }
   }
-}
+//   render() {
+//     return (
+//       <Drawer
+//         ref={(ref) => { this._drawer = ref; }}
+//         type="static"
+//         tweenDuration={150}
+//         content={<SideBar />}
+//         tapToClose={true}
+//         acceptPan={true}
+//         onClose={() => this.closeDrawer()}
+//         openDrawerOffset={0.6}
+//         panCloseMask={0.6}
+//         styles={{
+//           drawer: {
+//             shadowColor: '#000000',
+//             shadowOpacity: 0.8,
+//             shadowRadius: 3,
+//           },
+//         }}
+//         tweenHandler={(ratio) => {  //eslint-disable-line
+//           return {
+//             drawer: { shadowRadius: ratio < 0.2 ? ratio * 5 * 5 : 5 },
+//             main: {
+//               opacity: (2 - ratio) / 2,
+//             },
+//           };
+//         }}
+//         negotiatePan
+//       >
+//         <StatusBar
+//           backgroundColor={statusBarColor}
+//           barStyle="default"
+//         />
+//         <NavigationCardStack
+//           navigationState={this.props.navigation}
+//           renderOverlay={this._renderOverlay}
+//           renderScene={this._renderScene}
+//         />
+//       </Drawer>
+//     );
+//   }
+// }
 function bindAction(dispatch) {
   return {
     closeDrawer: () => dispatch(closeDrawer()),

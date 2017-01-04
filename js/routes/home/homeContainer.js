@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { openDrawer } from '../../actions/drawer';
-import { selectItem } from './homeDuck';
+import { selectItem } from '../../actions/list';
 import Home from './home';
 
 const { pushRoute } = actions;
