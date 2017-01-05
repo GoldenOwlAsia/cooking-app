@@ -17,16 +17,13 @@ class Home extends Component {
     key: React.PropTypes.string,
     }),
   }
+  pushRoute(route, index,title) {
+    
+    this.props.selectItem(index,title);
+    this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
+  }
   constructor (props) {
     super(props);
-    this.state = {
-      name: 'COOKING BOOK'
-      }
-  }
-
-  pushRoute(route, index) {
-    this.props.selectItem(index);
-    this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
   }
   render() {
     return (
@@ -36,23 +33,19 @@ class Home extends Component {
             <Icon name="ios-menu" />
           </Button>
           <Title>
-            {this.state.name}
-                  {/* {(this.props.name) ? this.props.name : 'COOKING BOOK'} */}
+            {this.props.name}
           </Title>
-
         </Header>
-
         <Content>
           <Grid style={styles.mt}>
             {this.props.list.map((row, i) => {
-              debugger;
               return (
                 <Row key={i}>
                   {row.map((col, j) => {
                     return (
                       <Col key={j} style={styles.col}>
                         <TouchableOpacity style={styles.item}
-                          onPress={() => this.pushRoute('foodDetail', col.id)}>
+                          onPress={() => this.pushRoute('foodDetail', col.id,col.title)}>
                           <Image style={styles.colImage} source={{uri: col.imageUrl}}></Image>
                           <Row style={styles.caption}>
                             <Text style={styles.title}>{col.title}</Text>

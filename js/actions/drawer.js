@@ -8,7 +8,6 @@ export function openDrawer():Action {
     type: OPEN_DRAWER,
   };
 }
-
 export function closeDrawer():Action {
   return {
     type: CLOSE_DRAWER,

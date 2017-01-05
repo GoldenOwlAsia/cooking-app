@@ -14,7 +14,7 @@ class CompleteView extends Component {
       }
   }
   replaceRoute(route) {
-    console.log(this.props.navigation);
+
     this.props.replaceAt('completeView', { key: route }, this.props.navigation.key);
   }
   popRoute() {

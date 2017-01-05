@@ -14,7 +14,7 @@ export default function navigateTo(route, homeRoute) {
     const currentRouteKey = navigation.routes[navigation.routes.length - 1].key;
 
     dispatch(closeDrawer());
-    console.log('hehe no nam o day',homeRoute )
+    
     if (currentRouteKey !== homeRoute && route !== homeRoute) {
       dispatch(replaceAt(currentRouteKey, { key: route, index: 1 }, navigation.key));
     } else if (currentRouteKey !== homeRoute && route === homeRoute) {

@@ -1,3 +1,4 @@
+
 import FoodDetail from './foodDetail';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
@@ -13,7 +14,8 @@ function bindAction(dispatch) {
 
 const mapStateToProps = state => ({
   navigation: state.cardNavigation,
-  index: state.list.selectedItemId,
+  index: state.list.index,
+  title: state.list.title,
   list: state.list.list,
 });
 

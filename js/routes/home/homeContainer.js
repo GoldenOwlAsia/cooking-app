@@ -8,7 +8,7 @@ const { pushRoute } = actions;
 
 function bindAction(dispatch) {
   return {
-    selectItem: index => dispatch(selectItem(index)),
+    selectItem: (index,title) => dispatch(selectItem(index,title)),
     openDrawer: () => dispatch(openDrawer()),
     pushRoute: (route, key) => dispatch(pushRoute(route, key)),
   };

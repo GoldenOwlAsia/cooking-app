@@ -7,7 +7,7 @@ export type State = {
 }
 
 const initialState = {
-  name: '',
+  name: 'COOKING BOOK',
 };
 
 export default function (state:State = initialState, action:Action): State {

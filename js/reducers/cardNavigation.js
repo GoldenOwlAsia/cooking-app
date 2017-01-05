@@ -1,6 +1,5 @@
 
 import { cardStackReducer } from 'react-native-navigation-redux-helpers';
-
 const initialState = {
   key: 'global',
   index: 0,
@@ -11,5 +10,4 @@ const initialState = {
     }
   ],
 };
-
 module.exports = cardStackReducer(initialState);

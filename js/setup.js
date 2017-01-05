@@ -8,8 +8,8 @@ import configureStore from './configureStore';
 function setup():React.Component {
   class Root extends Component {
 
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
       this.state = {
         isLoading: false,
         store: configureStore(() => this.setState({ isLoading: false })),
