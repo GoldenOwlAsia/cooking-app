@@ -9,9 +9,9 @@ class InfoView extends Component {
   /* 1. constructor */
   constructor (props) {
     super(props);
+    
     this.state = {
       food: {
-          imageUrl: 'https://ameovat.com/wp-content/uploads/2016/05/cach-lam-com-chien-duong-chau-600x481.jpg',
           recipes: '<ul><li>2 dẻ sườn non</li><li>Cà chua: 2 quả nhỏ hoặc 1 quả lớn</li><li>1 củ hành khô, hành lá</li><li>Gia vị bao gồm : Mắm, muối, đường, tiêu</li></ul>',
           notes: '<ul style="text-align: justify;"><li>Sườn chín mềm, màu vàng đều đẹp và bóng, không bị tróc rời thịt và xương sườn.</li><li>Vị chua cay mặn ngọt &nbsp;hoà quyện vừa phải, nước cạn sền sệt quện đều vào miếng sườn.</li><li>Món ăn dậy mùi chua thơm nhè nhẹ của cà chua.</li><li>Nước sốt bóng đẹp bao ngoài miếng sườn, cắn miếng sườn có vị đậm đà ngấm vào bên trong chứ không chỉ có vị nước sốt bên ngoài.</li></ul>',
           steps: [
@@ -56,13 +56,13 @@ class InfoView extends Component {
           <Button transparent onPress={() => this.popRoute()}>
             <Icon name="ios-arrow-back" />
           </Button>
-          <Title>{this.props.title}</Title>
+          <Title>{this.props.foodName}</Title>
         </Header>
         {/* viewContainer All*/}
         <View>
           {/* viewContainer Image */}
           <View>
-            <Image style={styles.image}  source={{uri: this.state.food.imageUrl}}>
+            <Image style={styles.image}  source={{uri: this.props.url}}>
             </Image>
           </View>
           {/* viewContainer ScrollableTabView */}
@@ -75,7 +75,6 @@ class InfoView extends Component {
                   source={{html: '<body bgcolor="F4E8D1">' + this.state.food.recipes + '</body>'}}>
                 </WebView>
               </ScrollView>
-
               <ScrollView tabLabel='Ghi chú' >
                 <WebView style={styles.webView}
                   source={{html: '<body bgcolor="F4E8D1">' + this.state.food.notes + '</body>'}}>
@@ -93,7 +92,9 @@ class InfoView extends Component {
                 </Text>
               </Col>
               <Col>
-                <Button onPress={() => this.pushRoute('detailView')} style={styles.btnStart} primary >
+                <Button onPress={() =>
+                  this.pushRoute('detailView',this.props.foodName,this.state.food.steps)}
+                  style={styles.btnStart} primary >
                   BẮT ĐẦU
                 </Button>
               </Col>
@@ -104,8 +105,9 @@ class InfoView extends Component {
     )
   }
   /* Method Action */
-  pushRoute(route) {
-    this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
+  pushRoute(route,foodName,info) {
+    this.props.sendInfo(foodName,info);
+    this.props.pushRoute({ key: route, index: 3 }, this.props.navigation.key);
   }
   popRoute() {
     this.props.popRoute(this.props.navigation.key);

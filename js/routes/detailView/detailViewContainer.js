@@ -13,8 +13,8 @@ function bindAction(dispatch) {
 
 const mapStateToProps = state => ({
   navigation: state.cardNavigation,
-  index: state.list.selectedItemId,
-  list: state.list.list,
+  foodName: state.list.foodNameReceive,
+  info: state.list.infoReceive,
 });
 
 export default connect(mapStateToProps, bindAction)(DetailView);

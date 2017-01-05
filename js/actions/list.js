@@ -1,13 +1,23 @@
 import type { Action } from './types';
-export const SELECT_ITEM = 'SELECT_ITEM';
+export const SELECT_FOOD  = 'kSelectFood';
+export const SEND_INFO    = 'kSendInfomation';
 
-export function selectItem(index : number, title :string) : Action {
+export function selectFood(url : string, foodName :string) : Action {
+  return {
+    type: SELECT_FOOD,
+    dict: {
+      url: url,
+      foodName: foodName
+    }
+  };
+}
+export function sendInfo(foodName : string, info :string) : Action {
 
   return {
-    type: SELECT_ITEM,
-    payload: {
-      index: index,
-      title: title
+    type: SEND_INFO,
+    dict: {
+      foodName: foodName,
+      info: info
     }
   };
 }

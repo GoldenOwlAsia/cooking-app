@@ -6,17 +6,7 @@ import myTheme from '../../themes/base-theme';
 import styles from './styles';
 
 class HomeView extends Component {
-  // static propTypes = {
-  //   name: React.PropTypes.string,
-  //   list: React.PropTypes.arrayOf(React.PropTypes.array),
-  //   selectItem: React.PropTypes.func,
-  //   openDrawer: React.PropTypes.func,
-  //   pushRoute: React.PropTypes.func,
-  //   reset: React.PropTypes.func,
-  //   navigation: React.PropTypes.shape({
-  //   key: React.PropTypes.string,
-  //   }),
-  // }
+
   /* 1. constructor */
   constructor (props) {
     super(props);
@@ -42,7 +32,7 @@ class HomeView extends Component {
                     return (
                       <Col key={j} style={styles.col}>
                         <TouchableOpacity style={styles.item}
-                          onPress={() => this.pushRoute('infoView', col.id,col.title)}>
+                          onPress={() => this.pushRoute('infoView', col.imageUrl,col.title)}>
                           <Image style={styles.colImage} source={{uri: col.imageUrl}}>
                           </Image>
                           <Row style={styles.caption}>
@@ -66,8 +56,8 @@ class HomeView extends Component {
     )
   }
   /* Method Action */
-  pushRoute(route, index,title) {
-    this.props.selectItem(index,title)
+  pushRoute(route, url,foodName) {
+    this.props.selectFood(url,foodName)
     this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key)
   }
 }

@@ -1,5 +1,6 @@
-import type { Action } from '../actions/types';
-import { SELECT_ITEM } from '../actions/list';
+import type { Action }  from '../actions/types';
+import { SELECT_FOOD }  from '../actions/list';
+import { SEND_INFO }    from '../actions/list';
 
 export type State = {
     list: string
@@ -30,11 +31,19 @@ const initialState = {
 };
 
 export default function (state:State = initialState, action:Action): State {
-  if (action.type === SELECT_ITEM) {
+  if (action.type === SELECT_FOOD) {
     return {
       ...state,
-      index: action.payload.index,
-      title: action.payload.title,
+      urlReceive: action.dict.url,
+      foodNameReceive: action.dict.foodName,
+    };
+  }
+
+  if (action.type === SEND_INFO) {
+    return {
+      ...state,
+      foodNameReceive: action.dict.foodName,
+      infoReceive: action.dict.info,
     };
   }
   return state;
