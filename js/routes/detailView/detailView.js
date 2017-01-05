@@ -5,7 +5,7 @@ import ScrollableTabView, {DefaultTabBar} from 'react-native-scrollable-tab-view
 import myTheme from '../../themes/base-theme';
 import styles from './styles';
 
-class StepsView extends Component {
+class DetailView extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -127,4 +127,4 @@ class StepsView extends Component {
   }
 }
 
-export default StepsView;
+export default DetailView;

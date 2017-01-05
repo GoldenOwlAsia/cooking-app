@@ -1,9 +1,8 @@
-
-import FoodDetail from './foodDetail';
+import DetailView from './detailView';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 
-const { popRoute , pushRoute } = actions;
+const { popRoute,pushRoute } = actions;
 
 function bindAction(dispatch) {
   return {
@@ -14,9 +13,8 @@ function bindAction(dispatch) {
 
 const mapStateToProps = state => ({
   navigation: state.cardNavigation,
-  index: state.list.index,
-  title: state.list.title,
+  index: state.list.selectedItemId,
   list: state.list.list,
 });
 
-export default connect(mapStateToProps, bindAction)(FoodDetail);
+export default connect(mapStateToProps, bindAction)(DetailView);

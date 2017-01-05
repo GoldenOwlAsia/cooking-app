@@ -5,26 +5,23 @@ import { Grid, Row, Col } from 'react-native-easy-grid';
 import myTheme from '../../themes/base-theme';
 import styles from './styles';
 
-class Home extends Component {
-  static propTypes = {
-    name: React.PropTypes.string,
-    list: React.PropTypes.arrayOf(React.PropTypes.array),
-    selectItem: React.PropTypes.func,
-    openDrawer: React.PropTypes.func,
-    pushRoute: React.PropTypes.func,
-    reset: React.PropTypes.func,
-    navigation: React.PropTypes.shape({
-    key: React.PropTypes.string,
-    }),
-  }
-  pushRoute(route, index,title) {
-    
-    this.props.selectItem(index,title);
-    this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
-  }
+class HomeView extends Component {
+  // static propTypes = {
+  //   name: React.PropTypes.string,
+  //   list: React.PropTypes.arrayOf(React.PropTypes.array),
+  //   selectItem: React.PropTypes.func,
+  //   openDrawer: React.PropTypes.func,
+  //   pushRoute: React.PropTypes.func,
+  //   reset: React.PropTypes.func,
+  //   navigation: React.PropTypes.shape({
+  //   key: React.PropTypes.string,
+  //   }),
+  // }
+  /* 1. constructor */
   constructor (props) {
     super(props);
   }
+  /* 2. render */
   render() {
     return (
       <Container theme={myTheme} style={styles.container}>
@@ -45,11 +42,16 @@ class Home extends Component {
                     return (
                       <Col key={j} style={styles.col}>
                         <TouchableOpacity style={styles.item}
-                          onPress={() => this.pushRoute('foodDetail', col.id,col.title)}>
-                          <Image style={styles.colImage} source={{uri: col.imageUrl}}></Image>
+                          onPress={() => this.pushRoute('infoView', col.id,col.title)}>
+                          <Image style={styles.colImage} source={{uri: col.imageUrl}}>
+                          </Image>
                           <Row style={styles.caption}>
-                            <Text style={styles.title}>{col.title}</Text>
-                            <Text style={styles.textViews}> {col.views} view</Text>
+                            <Text style={styles.title}>
+                              {col.title}
+                            </Text>
+                            <Text style={styles.textViews}>
+                              {col.views} view
+                            </Text>
                           </Row>
                         </TouchableOpacity>
                       </Col>
@@ -61,7 +63,12 @@ class Home extends Component {
           </Grid>
         </Content>
       </Container>
-    );
+    )
+  }
+  /* Method Action */
+  pushRoute(route, index,title) {
+    this.props.selectItem(index,title)
+    this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key)
   }
 }
-export default Home;
+export default HomeView;

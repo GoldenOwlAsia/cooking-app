@@ -5,10 +5,10 @@ import ScrollableTabView, {DefaultTabBar} from 'react-native-scrollable-tab-view
 import myTheme from '../../themes/base-theme';
 import styles from './styles';
 
-class FoodDetail extends Component {
+class InfoView extends Component {
+  /* 1. constructor */
   constructor (props) {
     super(props);
-    
     this.state = {
       food: {
           imageUrl: 'https://ameovat.com/wp-content/uploads/2016/05/cach-lam-com-chien-duong-chau-600x481.jpg',
@@ -47,14 +47,7 @@ class FoodDetail extends Component {
         }
       }
   }
-
-  pushRoute(route) {
-    this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
-  }
-  popRoute() {
-    this.props.popRoute(this.props.navigation.key);
-  }
-
+  /* 2. render */
   render() {
     return (
       <Container theme={myTheme}>
@@ -77,7 +70,7 @@ class FoodDetail extends Component {
             <ScrollableTabView tabBarBackgroundColor={'#F4E8D1'}
                 tabBarActiveTextColor={'#825526'} tabBarInactiveTextColor={'#825526'}
                 tabBarUnderlineStyle={{backgroundColor:'#825526' , borderColor : '#825526' , borderBottomWidth : 0.1 , borderBottomColor : '#825526'}}>
-              <ScrollView tabLabel='Nguyên liệu' >
+              <ScrollView tabLabel='Nguyên liệu'>
                 <WebView style={styles.webView}
                   source={{html: '<body bgcolor="F4E8D1">' + this.state.food.recipes + '</body>'}}>
                 </WebView>
@@ -94,10 +87,15 @@ class FoodDetail extends Component {
           <View style={styles.viewFooter}>
             <Grid style={{backgroundColor:'#fff'}}>
               <Col>
-                <Text style={styles.footerStep}>{this.state.food.steps.length} Bước</Text>
+                <Text style={styles.footerStep}>
+                  {this.state.food.steps.length}
+                  Bước
+                </Text>
               </Col>
               <Col>
-                <Button onPress={() => this.pushRoute('stepsView')} style={styles.btnStart} primary >BẮT ĐẦU</Button>
+                <Button onPress={() => this.pushRoute('detailView')} style={styles.btnStart} primary >
+                  BẮT ĐẦU
+                </Button>
               </Col>
             </Grid>
           </View>
@@ -105,6 +103,13 @@ class FoodDetail extends Component {
         </Container>
     )
   }
+  /* Method Action */
+  pushRoute(route) {
+    this.props.pushRoute({ key: route, index: 1 }, this.props.navigation.key);
+  }
+  popRoute() {
+    this.props.popRoute(this.props.navigation.key);
+  }
 }
 
-export default FoodDetail;
+export default InfoView;

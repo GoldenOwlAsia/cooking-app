@@ -63,7 +63,7 @@ class Introduction extends Component {
                   <View style={styles.slide} key={i}>
                     <Image source={images.introduction[i]} style={styles.images}>
                       <Button theme={themes} style={styles.btnContinue} primary iconRight
-                        onPress={() => this.replaceRoute('home')}>
+                        onPress={() => this.replaceRoute('homeView')}>
                         Vào màn hình chính
                         <Icon name='ios-arrow-forward' />
                       </Button>

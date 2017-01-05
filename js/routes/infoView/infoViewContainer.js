@@ -1,8 +1,9 @@
-import StepsView from './stepsView';
+
+import InfoView from './infoView';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 
-const { popRoute,pushRoute } = actions;
+const { popRoute , pushRoute } = actions;
 
 function bindAction(dispatch) {
   return {
@@ -10,11 +11,10 @@ function bindAction(dispatch) {
     pushRoute: (route,key) => dispatch(pushRoute(route,key)),
   };
 }
-
 const mapStateToProps = state => ({
   navigation: state.cardNavigation,
-  index: state.list.selectedItemId,
+  index: state.list.index,
+  title: state.list.title,
   list: state.list.list,
 });
-
-export default connect(mapStateToProps, bindAction)(StepsView);
+export default connect(mapStateToProps, bindAction)(InfoView);

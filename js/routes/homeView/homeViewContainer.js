@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import { openDrawer } from '../../actions/drawer';
 import { selectItem } from '../../actions/list';
-import Home from './home';
+import HomeView from './homeView';
 
 const { pushRoute } = actions;
 
@@ -20,4 +20,4 @@ const mapStateToProps = state => ({
   navigation: state.cardNavigation,
 });
 
-export default connect(mapStateToProps, bindAction)(Home);
+export default connect(mapStateToProps, bindAction)(HomeView);

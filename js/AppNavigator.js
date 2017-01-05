@@ -12,9 +12,9 @@ import SplashPage from './components/splashscreen/';
 import SideBar from './components/sideBar';
 
 import Introduction from './routes/introduction';
-import Home from './routes/home/';
-import FoodDetail from './routes/foodDetail';
-import StepsView from './routes/stepsView';
+import HomeView from './routes/homeView/';
+import InfoView from './routes/infoView';
+import DetailView from './routes/detailView';
 import CompleteView from './routes/completeView';
 
 const {
@@ -83,12 +83,12 @@ class AppNavigator extends Component {
         return <Login />;
       case 'introduction':
         return <Introduction />;
-      case 'home':
-        return <Home />;
-      case 'foodDetail':
-        return <FoodDetail />;
-      case 'stepsView':
-        return <StepsView/>;
+      case 'homeView':
+        return <HomeView />;
+      case 'infoView':
+        return <InfoView />;
+      case 'detailView':
+        return <DetailView/>;
         case 'completeView':
           return <CompleteView/>;
       case 'blankPage':
