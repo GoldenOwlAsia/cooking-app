@@ -1,7 +1,6 @@
 import CompleteView from './completeView';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
-
 const {
   replaceAt,popRoute,
 } = actions;

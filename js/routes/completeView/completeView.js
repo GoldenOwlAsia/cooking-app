@@ -7,19 +7,16 @@ import myTheme from '../../themes/base-theme';
 import styles from './styles';
 
 class CompleteView extends Component {
-
+  static propTypes = {
+    navigateTo: React.PropTypes.func,
+  }
+  /* constructor */
   constructor (props) {
     super(props);
     this.state = {
       }
   }
-  replaceRoute(route) {
-
-    this.props.replaceAt('completeView', { key: route }, this.props.navigation.key);
-  }
-  popRoute() {
-    this.props.popRoute(this.props.navigation.key);
-  }
+  /* render */
   render() {
     return (
       <View >
@@ -47,8 +44,14 @@ class CompleteView extends Component {
             </ButtonCustom>
           </View>
       </View>
-
     )
+  }
+  /* Method Action */
+  replaceRoute(route) {
+    this.props.replaceAt('completeView', { key: route }, this.props.navigation.key);
+  }
+  popRoute() {
+    this.props.popRoute(this.props.navigation.key);
   }
 }
 

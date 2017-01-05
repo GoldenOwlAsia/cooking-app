@@ -5,7 +5,6 @@ import SideBar from './sidebar';
 
 function bindAction(dispatch) {
   return {
-    setIndex: index => dispatch(setIndex(index)),
     navigateTo: (route, homeRoute) => dispatch(navigateTo(route, homeRoute)),
   };
 }

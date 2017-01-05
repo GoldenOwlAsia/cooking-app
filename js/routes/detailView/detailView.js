@@ -6,6 +6,7 @@ import myTheme from '../../themes/base-theme';
 import styles from './styles';
 
 class DetailView extends Component {
+  /* constructor */
   constructor (props) {
     super(props);
     this.state = {
@@ -13,34 +14,7 @@ class DetailView extends Component {
       contentText: this.props.info[0].header,
       }
   }
-  pushRoute(route) {
-    this.props.pushRoute({ key: route, index: 4 }, this.props.navigation.key);
-  }
-  popRoute() {
-    this.props.popRoute(this.props.navigation.key);
-  }
-  onPressButtonBack(){
-      if (this.state.steps == 1){
-        this.popRoute()
-      }else{
-        var temp = this.state.steps - 1
-        this.setState({
-          steps : temp ,
-          contentText : this.props.info[temp - 1 ].header
-        })
-    }
-  }
-  onPressButtonNext(){
-      if (this.state.steps == this.props.info.length){
-        this.pushRoute('completeView')
-      }else{
-        var temp = this.state.steps + 1
-        this.setState({
-          steps : temp ,
-          contentText : this.props.info[temp - 1].header
-        })
-    }
-  }
+  /* render */
   render() {
     return (
       <View >
@@ -86,6 +60,35 @@ class DetailView extends Component {
         </View>
         </View>
     )
+  }
+  /* Method Action */
+  pushRoute(route) {
+    this.props.pushRoute({ key: route, index: 4 }, this.props.navigation.key);
+  }
+  popRoute() {
+    this.props.popRoute(this.props.navigation.key);
+  }
+  onPressButtonBack(){
+      if (this.state.steps == 1){
+        this.popRoute()
+      }else{
+        var temp = this.state.steps - 1
+        this.setState({
+          steps : temp ,
+          contentText : this.props.info[temp - 1 ].header
+        })
+    }
+  }
+  onPressButtonNext(){
+      if (this.state.steps == this.props.info.length){
+        this.pushRoute('completeView')
+      }else{
+        var temp = this.state.steps + 1
+        this.setState({
+          steps : temp ,
+          contentText : this.props.info[temp - 1].header
+        })
+    }
   }
 }
 

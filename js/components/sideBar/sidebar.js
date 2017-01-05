@@ -6,12 +6,11 @@ import styles from './style';
 class SideBar extends Component {
 
   static propTypes = {
-    // setIndex: React.PropTypes.func,
     navigateTo: React.PropTypes.func,
   }
 
   navigateTo(route) {
-    this.props.navigateTo(route, 'home');
+    this.props.navigateTo(route, 'homeView');
   }
 
   render() {
