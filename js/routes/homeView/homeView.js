@@ -39,8 +39,8 @@ class HomeView extends Component {
                             <Text style={styles.title}>
                               {col.title}
                             </Text>
-                            <Text style={styles.textViews}>
-                              {col.views} view
+                            <Text style={styles.textView}>
+                              {col.views} views
                             </Text>
                           </Row>
                         </TouchableOpacity>

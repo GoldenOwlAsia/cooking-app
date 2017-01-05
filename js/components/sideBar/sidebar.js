@@ -18,18 +18,18 @@ class SideBar extends Component {
     return (
       <Container theme={myTheme}>
       <Header>
-          <Button transparent onPress={() => this.navigateTo('home')}>
+          <Button transparent onPress={() => this.navigateTo('homeView')}>
             <Icon name="ios-home" style={styles.icon} />
             <Text>Trang chủ</Text>
           </Button>
           <Text></Text>
       </Header>
       <Content style={styles.sidebar}>
-        <Button transparent onPress={() => this.navigateTo('history')}>
+        <Button transparent onPress={() => this.navigateTo('historyView')}>
           <Icon name="ios-time" style={styles.icon} />
           <Text>Lịch sử</Text>
         </Button>
-        <Button transparent onPress={() => this.navigateTo('profile')}>
+        <Button transparent onPress={() => this.navigateTo('profileView')}>
           <Icon name="ios-person" style={styles.icon} />
           <Text>Về bạn</Text>
         </Button>

@@ -17,6 +17,9 @@ import InfoView from './routes/infoView';
 import DetailView from './routes/detailView';
 import CompleteView from './routes/completeView';
 
+import HistoryView from './routes/historyView';
+import ProfileView from './routes/profileView';
+
 const {
   popRoute,
 } = actions;
@@ -77,20 +80,24 @@ class AppNavigator extends Component {
 
   _renderScene(props) {
     switch (props.scene.route.key) {
-      case 'splashscreen':
-        return <SplashPage />;
-      case 'login':
-        return <Login />;
-      case 'introduction':
-        return <Introduction />;
       case 'homeView':
         return <HomeView />;
       case 'infoView':
         return <InfoView />;
       case 'detailView':
         return <DetailView/>;
-        case 'completeView':
-          return <CompleteView/>;
+      case 'completeView':
+        return <CompleteView/>;
+      case 'historyView':
+        return <HistoryView/>;
+      case 'profileView':
+        return <ProfileView/>;
+      case 'splashscreen':
+        return <SplashPage />;
+      case 'login':
+        return <Login />;
+      case 'introduction':
+        return <Introduction />;
       case 'blankPage':
         return <BlankPage />;
       default :

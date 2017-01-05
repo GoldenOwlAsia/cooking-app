@@ -12,7 +12,6 @@ export function selectFood(url : string, foodName :string) : Action {
   };
 }
 export function sendInfo(foodName : string, info :string) : Action {
-
   return {
     type: SEND_INFO,
     dict: {

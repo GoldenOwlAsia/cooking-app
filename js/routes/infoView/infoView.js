@@ -9,7 +9,7 @@ class InfoView extends Component {
   /* 1. constructor */
   constructor (props) {
     super(props);
-    
+
     this.state = {
       food: {
           recipes: '<ul><li>2 dẻ sườn non</li><li>Cà chua: 2 quả nhỏ hoặc 1 quả lớn</li><li>1 củ hành khô, hành lá</li><li>Gia vị bao gồm : Mắm, muối, đường, tiêu</li></ul>',
@@ -87,8 +87,7 @@ class InfoView extends Component {
             <Grid style={{backgroundColor:'#fff'}}>
               <Col>
                 <Text style={styles.footerStep}>
-                  {this.state.food.steps.length}
-                  Bước
+                  {this.state.food.steps.length} Bước
                 </Text>
               </Col>
               <Col>
