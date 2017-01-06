@@ -14,6 +14,7 @@ function bindActions(dispatch) {
 }
 
 const mapStateToProps = state => ({
+  foodName: state.list.foodNameReceive,
   navigation: state.cardNavigation,
 });
 

@@ -25,14 +25,14 @@ class CompleteView extends Component {
           <Header style = {styles.headerView}>
             {/* title */}
             <Title style = {styles.title}>
-              Sườn xào chua ngọt
+              {this.props.foodName}
             </Title>
           </Header>
           <View style = {styles.containerView}>
             {/* 2 */}
             {/* containerView */}
             <Text style = {styles.contentText}>
-              Chuc Ban May Man Lan Sau
+              CHÚC MỪNG BẠN ĐÃ HOÀN THÀNH
             </Text>
             <Image style = {styles.imageLogo}>
             </Image>

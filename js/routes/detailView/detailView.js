@@ -63,6 +63,7 @@ class DetailView extends Component {
   }
   /* Method Action */
   pushRoute(route) {
+    this.props.sendName(this.props.foodName)
     this.props.pushRoute({ key: route, index: 4 }, this.props.navigation.key);
   }
   popRoute() {

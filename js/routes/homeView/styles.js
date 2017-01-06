@@ -40,8 +40,7 @@ module.exports = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 10,
     lineHeight: 20,
-    width : w/2 - 60 ,
-
+    width : w/2 - 60
   },
   textView: {
     textAlign: 'left',
